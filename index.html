@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Amuthan </title>
+  <link rel="icon" href="images/favicon.ico" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: ['class', 'dark-theme']
+  }
+</script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Dosis:wght@400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#">A Amuthan</a>
+
+   <nav class="main-nav" aria-label="Primary">
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><span class="material-icons menu-icon">menu</span></li>
+  </ul>
+  <div class="nav-right">
+   
+    <button class="theme-btn" id="dark-btn" title="Dark Mode">
+      <span class="material-icons">dark_mode</span>
+    </button>
+    <button class="theme-btn" id="light-btn" title="Light Mode">
+      <span class="material-icons">light_mode</span>
+    </button>
+  </div>
+  <ul class="mobile-nav">
+  <li><a href="#hero">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#testimonials">Testimonials</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+  <section
+  id="hero"
+  class="pt-[90px] md:pt-[120px] pb-[40px] md:pb-[60px] bg-[linear-gradient(120deg,rgba(6,6,6,0.95),rgba(8,8,8,0.9)),url('images/hero-bg.jpg')] bg-cover bg-center text-white"
+>
+  <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-10 items-center">
+
+    <div class="max-w-[760px]">
+      <p class="font-['Dosis'] text-xl font-medium mb-4">
+        <span id="typing-text"></span>
+      </p>
+
+      <div class="inline-block text-center">
+        <h1 class="font-['Cairo'] font-extrabold tracking-[0.25em] md:tracking-[0.4em] text-[clamp(2.8rem,6vw,5.2rem)] mb-3">
+          LEADERSHIP
+        </h1>
+
+        <p class="font-['Allura'] text-3xl leading-snug">
+          is not about being in the spotlight, <br />
+          it’s about creating a platform for others to shine.
+        </p>
+      </div>
+    </div>
+
+    <figure class="hidden lg:block">
+      <img
+        src="images/hero-placeholder.jpg"
+        alt="A Amuthan — portrait or leadership imagery"
+        class="w-full rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+      />
+    </figure>
+
+  </div>
+</section>
+
+
+
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <figure class="about-image">
+        <img src="images/about-placeholder.jpg" alt="About — Image of A Amuthan">
+      </figure>
+
+      <div class="about-content">
+        <div class="section-header">
+          <h2>About Me</h2>
+         <div class="underline"></div>
+         </div>
+
+        <p class="lead"><br>Mr. Amuthan lives by the principle, </p>
+
+<p><b>“A leader is one who knows the way, goes the way, and shows the way”</b></p>
+
+<p> as quoted by <b>John C. Maxwell</b>. He embodies this philosophy in every aspect of his leadership. With a clear vision and unwavering commitment, Mr. Amuthan not only defines the path forward but also leads by example, inspiring others to follow his lead. His leadership is grounded in integrity and purpose, ensuring that those around him not only understand the way forward but are also motivated to walk with him.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-16 bg-[#e3e1e1] dark:bg-[#151515]">
+  <div class="max-w-[1200px] mx-auto px-6">
+
+    <div class="text-center mb-10">
+      <h2 class="text-2xl font-bold font-['Dosis'] text-black dark:text-white">
+        My Services
+      </h2>
+      <div class="w-12 h-[3px] bg-black dark:bg-white mx-auto mt-2 rounded"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+      <article class="bg-white text-black dark:bg-[#121212] dark:text-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-bold text-lg mb-2">
+          Baptist Healthcare Private Limited
+        </h3>
+        <p class="text-sm leading-relaxed opacity-80">
+          Successfully guided Baptist Healthcare Private Limited from its inception,
+          including its earlier phase as DAMN Enterprises.
+        </p>
+      </article>
+
+      <article class="bg-white text-black dark:bg-[#121212] dark:text-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-bold text-lg mb-2">
+          Early Career
+        </h3>
+        <p class="text-sm leading-relaxed opacity-80">
+          Started in the healthcare industry in 1994 as a Medical Representative.
+          Became the top performer among 200 peers by 1997.
+        </p>
+      </article>
+
+      <article class="bg-white text-black dark:bg-[#121212] dark:text-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-bold text-lg mb-2">
+          Rapid Career Advancement
+        </h3>
+        <p class="text-sm leading-relaxed opacity-80">
+          Promoted to Area Sales Manager in 1999 at the age of 26,
+          becoming the first Medical Representative to do so.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="blog-section" class="section">
+  <div class="container">
+    <div class="section-header center">
+      <h2>Blog</h2>
+      <div class="underline"></div>
+    </div>
+
+    <div id="blog-list" class="cards-grid"></div>
+
+    <div id="blog-loader" class="loader" style="display:none;"></div>
+
+    <button id="load-more-blog" class="btn-primary" style="margin: 25px auto; display:block;">
+      Load More
+    </button>
+  </div>
+</section>
+
+
+   <section id="testimonials" class="section"> 
+   <div class="container"> 
+   <div class="section-header center"> 
+   <h2>Testimonials</h2>  
+   <div class="underline">
+   </div> 
+   </div>
+    <div class="testimonials-slider">
+    <div class="slide active">
+    <blockquote class="testimonial">
+      <p>“Testimonial 1.”</p>
+      <cite>— Client Name </cite>
+    </blockquote>
+    </div>
+
+  <div class="slide">
+    <blockquote class="testimonial">
+      <p>“Testimonial 2.”</p>
+      <cite>— Client Name </cite>
+    </blockquote>
+  </div>
+
+  <button class="slider-btn prev">❮</button>
+  <button class="slider-btn next">❯</button>
+ </div>
+
+ </section>
+
+ 
+  <section id="contact" class="py-16 bg-[#e3e1e1] dark:bg-[#151515]">
+  <div class="max-w-[820px] mx-auto px-6">
+
+  
+    <div class="text-center mb-10">
+      <h2 class="text-2xl font-bold font-['Dosis']">Contact</h2>
+      <div class="w-12 h-[3px] bg-black dark:bg-white mx-auto mt-2 rounded"></div>
+    </div>
+
+    <form class="grid gap-4 contact-form">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          class="p-3 rounded-lg bg-white dark:bg-[#121212] outline outline-1 outline-black/10 dark:outline-white/10"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          class="p-3 rounded-lg bg-white dark:bg-[#121212] outline outline-1 outline-black/10 dark:outline-white/10"
+          required
+        />
+      </div>
+
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Your Message"
+        class="p-3 rounded-lg bg-white dark:bg-[#121212] outline outline-1 outline-black/10 dark:outline-white/10"
+        required
+      ></textarea>
+
+      <div class="text-center mt-4">
+        <button
+          type="submit"
+          class="px-6 py-3 bg-black text-white rounded-lg hover:opacity-90 transition"
+        >
+          Send Message
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2025 A Amuthan. All Rights Reserved.</p>
+  </div>
+</footer>
+<button id="scroll-top-btn" title="Go to top">↑</button>
+<script type="module" src="js/script.js"></script>
+</body>
+</html>
