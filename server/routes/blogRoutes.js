@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Joi = require("joi");
 const Blog = require("../models/Blog");
+const authMiddleware = require("../middleware/authMiddleware");
 
 const blogValidationSchema = Joi.object({
   title: Joi.string().min(3).required(),
@@ -9,7 +10,6 @@ const blogValidationSchema = Joi.object({
   author: Joi.string().optional(),
   status: Joi.string().valid("draft", "published").optional()
 });
-
 
 router.get("/", async (req, res) => {
   try {
@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
 });
 
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const { error } = blogValidationSchema.validate(req.body);
 
   if (error) {
@@ -45,6 +45,30 @@ router.post("/", async (req, res) => {
     res.status(201).json(blog);
   } catch (error) {
     res.status(500).json({ message: "Failed to create blog" });
+  }
+});
+
+router.delete("/:id", authMiddleware, async (req, res) => {
+  try {
+    const blog = await Blog.findByIdAndDelete(req.params.id);
+
+    if (!blog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    res.json({ message: "Blog deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete blog" });
+  }
+});
+
+
+router.get("/admin/all", authMiddleware, async (req, res) => {
+  try {
+    const blogs = await Blog.find().sort({ createdAt: -1 });
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch blogs" });
   }
 });
 

@@ -13,9 +13,10 @@ export function initBlog() {
     try {
       loader.style.display = "flex";
 
-      const res = await fetch(
-        `http://localhost:3000/api/blogs?page=${page}&limit=${PER_LOAD}`
-      );
+       const res = await fetch(
+        `https://portfolio-backend-ao6d.onrender.com/api/blogs?page=${page}&limit=${PER_LOAD}`
+);
+    
       if (!res.ok) throw new Error("Failed to load blogs");
 
       const posts = await res.json();

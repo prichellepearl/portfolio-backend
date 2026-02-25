@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))
 );
-
+app.use(express.static(path.join(__dirname, "..")));
 
 app.use("/api/blogs", blogRoutes);
 app.use("/api/contact", contactRoutes);
