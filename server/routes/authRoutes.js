@@ -24,10 +24,10 @@ router.post("/login", async (req, res) => {
   }
 
   const token = jwt.sign(
-    { role: "admin", email },
-    "SECRET_KEY",
-    { expiresIn: "1h" }
-  );
+  { role: "admin", email },
+  process.env.JWT_SECRET,
+  { expiresIn: "1h" }
+);
 
   res.json({
     message: "Admin login successful",

@@ -1,28 +1,43 @@
 // js/modules/blog.js
+
+// dynamic API base for local and production
+const API_BASE = window.location.hostname.includes("localhost")
+  ? "http://localhost:3000/api"
+  : "https://portfolio-backend-ao6d.onrender.com/api";
+
 export function initBlog() {
   const list = document.getElementById("blog-list");
-  const loader = document.getElementById("blog-loader");
+  const loaderWrapper = document.getElementById("blog-loader-wrapper");
   const loadMoreBtn = document.getElementById("load-more-blog");
 
-  if (!list || !loader || !loadMoreBtn) return;
+  if (!list || !loaderWrapper || !loadMoreBtn) return;
 
   let page = 1;
   const PER_LOAD = 6;
 
   async function fetchBlogs() {
     try {
-      loader.style.display = "flex";
+      loaderWrapper.style.display = "flex";
 
-       const res = await fetch(
-        `https://portfolio-backend-ao6d.onrender.com/api/blogs?page=${page}&limit=${PER_LOAD}`
-);
-    
-      if (!res.ok) throw new Error("Failed to load blogs");
+      const res = await fetch(`${API_BASE}/blogs?page=${page}&limit=${PER_LOAD}`);
+
+      if (!res.ok) {
+        console.error("API ERROR:", res.status);
+        throw new Error("Failed to load blogs");
+      }
 
       const posts = await res.json();
+      console.log("BLOG POSTS:", posts);
 
       if (posts.length === 0) {
         loadMoreBtn.style.display = "none";
+
+        const endMsg = document.createElement("p");
+        endMsg.className = "blog-end-msg";
+        endMsg.textContent = "You've reached the end of the blog posts.";
+
+        list.appendChild(endMsg);
+
         return;
       }
 
@@ -30,9 +45,10 @@ export function initBlog() {
       page++;
 
     } catch (err) {
-      list.innerHTML = `<p class="error-msg">⚠ Unable to load blogs. Please try again later.</p>`;
+      console.error("BLOG FETCH ERROR:", err);
+      list.innerHTML = `<p class="error-msg">⚠ Unable to load blogs.</p>`;
     } finally {
-      loader.style.display = "none";
+      loaderWrapper.style.display = "none";
     }
   }
 

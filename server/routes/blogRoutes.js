@@ -1,15 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Joi = require("joi");
 const Blog = require("../models/Blog");
 const authMiddleware = require("../middleware/authMiddleware");
-
-const blogValidationSchema = Joi.object({
-  title: Joi.string().min(3).required(),
-  content: Joi.string().min(10).required(),
-  author: Joi.string().optional(),
-  status: Joi.string().valid("draft", "published").optional()
-});
+const blogSchema = require("../validation/blogSchema");
+const validate = require("../middleware/validate");
 
 router.get("/", async (req, res) => {
   try {
@@ -29,15 +23,8 @@ router.get("/", async (req, res) => {
 });
 
 
-router.post("/", authMiddleware, async (req, res) => {
-  const { error } = blogValidationSchema.validate(req.body);
-
-  if (error) {
-    return res.status(400).json({
-      message: error.details[0].message
-    });
-  }
-
+router.post("/", authMiddleware, validate(blogSchema), async (req, res) => {
+  
   try {
     const blog = new Blog(req.body);
     await blog.save();
